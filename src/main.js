@@ -3,7 +3,7 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 import '~/assets/scss/globals.scss'
-import '~/assets/css/asciinema-player.css'
+//import '~/assets/css/asciinema-player.css'
 import Vuex from 'vuex'
 require('typeface-source-sans-pro')
 
