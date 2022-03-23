@@ -1,23 +1,25 @@
 <template>
     <aside class="sidebar" :class="{'sidebar--open' : this.$store.state.sidebarOpen}">
-      <nav>
-        <ul>
-          <li class="section" v-for="{ node } in $static.menu.edges" :key="node.id">
-            <h3 class="section-title">{{node.section}}</h3>
-            <ul>
-              <li v-for="item in node.topics" :key="item.title">
-                <g-link class="topic" :to="'/' + item.slug">{{item.title}}</g-link>
-                <ul v-if="checkAnchors(node.slug, item.slug)" v-for="{ node } in $static.docs.edges" :key="node.id">
-                  <li v-for="heading in node.headings" :key="heading.value">
-                    <g-link class="sub-topic" :to="'/' + item.slug + heading.anchor">{{heading.value}}</g-link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <GitLink class="git" />
-      </nav>
+      <div class="scroll">
+        <nav>
+          <ul>
+            <li class="section" v-for="{ node } in $static.menu.edges" :key="node.id">
+              <h3 class="section-title">{{node.section}}</h3>
+              <ul>
+                <li v-for="item in node.topics" :key="item.title">
+                  <g-link class="topic" :to="'/' + item.slug">{{item.title}}</g-link>
+                  <ul v-if="checkAnchors(node.slug, item.slug)" v-for="{ node } in $static.docs.edges" :key="node.id">
+                    <li v-for="heading in node.headings" :key="heading.value">
+                      <g-link class="sub-topic" :to="'/' + item.slug + heading.anchor">{{heading.value}}</g-link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <GitLink class="git" />
+        </nav>
+      </div>
     </aside>
 </template>
 
@@ -105,7 +107,7 @@ export default {
 <style lang="scss" scoped>
 .sidebar {
   transition: background .15s ease-in-out, transform .15s ease-in-out, border-color .15s linear;
-  padding: 100px 30px 30px;
+  /*padding: 100px 30px 30px;*/
   width: 300px;
   position: fixed;
   top: 0;
@@ -115,7 +117,6 @@ export default {
   will-change: transform;
   transform: translateX(-300px);
   border-right: 1px solid transparent;
-  overflow: auto;
 
   @include respond-above(sm) {
     transform: translateX(0);
@@ -135,6 +136,19 @@ export default {
     border-color: shade($sidebarDark, 40%);
   }
 
+}
+
+.scroll {
+  margin-top: 90px;
+  padding: 0 30px 30px;
+  overflow: auto;
+  height: -webkit-fill-available;
+  transition: margin-top .15s linear;
+  will-change: margin-top;
+
+  @include respond-above(sm) {
+    margin-top: 105px;
+  }
 }
 
 nav {
