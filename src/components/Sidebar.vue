@@ -186,16 +186,17 @@ ul {
   }
 
   .topic:not(.active) + & {
-    display: none;
-    transition: display .15s linear;
-    will-change: display;
+    height: 0;
+    transition: height .15s linear;
+    will-change: height;
+    overflow: hidden;
   }
 
-  .topic.active + & {
+  /*.topic.active + & {
     display: block;
     transition: display .15s linear;
     will-change: display;
-  }
+  }*/
 }
 
 .section {
