@@ -24,7 +24,6 @@ module.exports = {
   siteName: 'Jamdocs',
   siteUrl,
   pathPrefix,
-  outputDir: 'public',
   plugins: [
     {
       use: '@gridsome/vue-remark',
