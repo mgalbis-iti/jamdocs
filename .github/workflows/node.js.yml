@@ -13,7 +13,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Set environment variables {}
+      - name: Set environment variables { }
         run: |
           REPO=${GITHUB_REPOSITORY#*\/}
           echo CI_PROJECT_NAME=${REPO} >> $GITHUB_ENV
@@ -21,6 +21,12 @@ jobs:
 
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+
+      - name: Setup node 12 📮
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+          cache: 'npm'
 
       - name: Install and Build 🔧
         run: |
