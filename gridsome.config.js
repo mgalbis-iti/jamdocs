@@ -15,10 +15,18 @@ function addStyleResource (rule) {
     })
 }
 
+const absolutePath = process.env.CI_PAGES_URL
+const pathPrefix = new URL(absolutePath).pathname
+const siteUrl = absolutePath.replace(pathPrefix, '')
+
+console.log(absolutePath)
+console.log(pathPrefix)
+console.log(siteUrl)
+
 module.exports = {
   siteName: 'Jamdocs',
-  siteUrl: 'https://mgalbis.github.io',
-  pathPrefix: '/jamdocs',
+  siteUrl,
+  pathPrefix,
   plugins: [
     {
       use: '@gridsome/vue-remark',
@@ -32,7 +40,7 @@ module.exports = {
           [
             "@pondorasti/remark-img-links",
             {
-              absolutePath: "https://mgalbis.github.io/jamdocs/"
+              absolutePath
             },
           ]
         ]
