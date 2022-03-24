@@ -19,14 +19,12 @@ const absolutePath = process.env.CI_PAGES_URL
 const pathPrefix = new URL(absolutePath).pathname
 const siteUrl = absolutePath.replace(pathPrefix, '')
 
-console.log(absolutePath)
-console.log(pathPrefix)
-console.log(siteUrl)
 
 module.exports = {
   siteName: 'Jamdocs',
   siteUrl,
   pathPrefix,
+  outputDir: 'public',
   plugins: [
     {
       use: '@gridsome/vue-remark',
