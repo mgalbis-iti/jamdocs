@@ -146,7 +146,7 @@ export default {
   will-change: margin-top;
 
   @include respond-above(sm) {
-    margin-top: 105px;
+    margin-top: 110px;
   }
 }
 
