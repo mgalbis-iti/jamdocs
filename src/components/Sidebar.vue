@@ -138,7 +138,7 @@ export default {
 }
 
 .scroll {
-  margin-top: 90px;
+  margin-top: 80px;
   padding: 0 30px 30px;
   overflow: auto;
   height: -webkit-fill-available;
@@ -187,16 +187,11 @@ ul {
 
   .topic:not(.active) + & {
     height: 0;
-    transition: height .15s linear;
+    transition: height .15s;
     will-change: height;
     overflow: hidden;
   }
 
-  /*.topic.active + & {
-    display: block;
-    transition: display .15s linear;
-    will-change: display;
-  }*/
 }
 
 .section {
