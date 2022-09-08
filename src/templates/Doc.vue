@@ -52,7 +52,7 @@ export default {
   }
 
 .markdown {
-  padding-bottom: 50vh;
+  padding-bottom: 50px;
   text-align: justify;
 }
 </style>
