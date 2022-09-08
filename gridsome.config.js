@@ -30,7 +30,7 @@ module.exports = {
       options: {
         typeName: 'Doc',
         baseDir: 'docs',
-        pathPrefix,
+        pathPrefix: '/',
         route: '/:slug',
         template: './src/templates/Doc.vue',
         plugins: [
