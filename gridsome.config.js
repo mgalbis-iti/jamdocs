@@ -30,17 +30,11 @@ module.exports = {
       options: {
         typeName: 'Doc',
         baseDir: 'docs',
-        pathPrefix: '/',
         route: '/:slug',
         template: './src/templates/Doc.vue',
         plugins: [
           '@gridsome/remark-prismjs',
-          // [
-          //   "@pondorasti/remark-img-links",
-          //   {
-          //     absolutePath
-          //   },
-          // ]
+          ["@mgalbis/remark-prefix-links", { pathPrefix }]
         ]
       }
     },
